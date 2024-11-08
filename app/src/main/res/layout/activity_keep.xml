@@ -50,7 +50,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/siv_line"
         android:layout_width="match_parent"
-        android:layout_height="8px"
+        android:layout_height="8dp"
         android:layout_marginTop="150dp"
         android:background="#F7F8F8"
         app:layout_constraintTop_toTopOf="parent" />

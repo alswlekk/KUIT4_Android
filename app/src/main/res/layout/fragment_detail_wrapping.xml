@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.DetailWrappingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_wrapping_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_arrival_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="29dp"
+            android:text="도착까지 30분"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_origin_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="86dp"
+            android:layout_marginBottom="3dp"
+            android:text="매장.원산지정보"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_arrival_time"
+            app:layout_constraintStart_toEndOf="@+id/tv_arrival_time" />
+
+        <ImageView
+            android:id="@+id/tv_origin_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_wrapping_switch"
+            app:layout_constraintBottom_toBottomOf="@id/tv_origin_information"
+            app:layout_constraintStart_toEndOf="@id/tv_origin_information"
+            app:layout_constraintTop_toTopOf="@id/tv_origin_information" />
+
+        <TextView
+            android:id="@+id/tv_address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="주소"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_arrival_time"
+            app:layout_constraintTop_toBottomOf="@+id/tv_arrival_time" />
+
+        <TextView
+            android:id="@+id/tv_store_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="서울특별시 광진구 능동로 19길"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_address_text"
+            app:layout_constraintTop_toTopOf="@+id/tv_address_text" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/siv_line"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="30dp"
+            android:background="#F7F8F8"
+            app:layout_constraintTop_toBottomOf="@+id/tv_store_address" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_wrapping_menu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_wrapping_information" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

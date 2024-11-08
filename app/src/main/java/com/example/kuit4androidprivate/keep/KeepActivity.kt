@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.databinding.ActivityKeepBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
+import com.example.kuit4androidprivate.model.MenuData
 
 class KeepActivity : AppCompatActivity() {
 
@@ -21,7 +22,15 @@ class KeepActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.clOurrickcake.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
+
+            val intent = Intent(this, DetailActivity::class.java).apply {
+                putExtra("title", "아워떡볶이")
+                putExtra("imgId", R.drawable.img_detail_restaurant)
+                putExtra("review", "4.9")
+                putExtra("count", "(3,849)")
+
+            }
+
             startActivity(intent)
         }
 

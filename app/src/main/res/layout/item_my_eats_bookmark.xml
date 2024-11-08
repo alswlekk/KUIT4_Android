@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="28dp">
+
+    <ImageView
+        android:id="@+id/iv_my_eats_bookmark"
+        android:layout_width="match_parent"
+        android:layout_height="149dp"
+        android:src="@drawable/img_detail_restaurant"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_bookmark_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="아워떡볶이"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_my_eats_bookmark"
+        app:layout_constraintStart_toStartOf="@+id/iv_my_eats_bookmark"
+        app:layout_constraintTop_toBottomOf="@+id/iv_my_eats_bookmark" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_total_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        app:layout_constraintEnd_toEndOf="@id/tv_bookmark_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_bookmark_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bookmark_title">
+
+        <ImageView
+            android:id="@+id/iv_bookmark_star"
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_bookmark_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="4.9"
+            android:textColor="#575252"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/iv_bookmark_star"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_bookmark_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:text="(3,839)"
+            android:textColor="#575252"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tv_bookmark_review"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

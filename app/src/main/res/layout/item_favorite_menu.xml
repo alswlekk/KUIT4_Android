@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/favorite_menu_total"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_constraintBottom_toBottomOf="parent"
 
     >
@@ -12,45 +12,45 @@
         android:id="@+id/siv_item"
         android:layout_width="wrap_content"
         android:layout_height="129dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/corner_size_8"
-        android:background="#DBDBDB"
         android:layout_marginStart="27dp"
         android:layout_marginEnd="27dp"
+        android:background="#DBDBDB"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/corner_size_8" />
 
 
     <TextView
+        android:id="@+id/tv_favmenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_favmenu"
         android:text="아워떡볶이"
+        android:textColor="?attr/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/siv_item"
-        app:layout_constraintTop_toBottomOf="@+id/siv_item"/>
+        app:layout_constraintTop_toBottomOf="@+id/siv_item" />
 
     <TextView
+        android:id="@+id/tv_fav_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_fav_time"
-        android:textSize="12sp"
         android:text="30분"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/siv_item"
-        app:layout_constraintTop_toBottomOf="@+id/siv_item"/>
+        app:layout_constraintTop_toBottomOf="@+id/siv_item" />
 
     <ImageView
         android:id="@+id/star"
         android:layout_width="15dp"
         android:layout_height="15dp"
+        android:src="@drawable/img_star"
         app:layout_constraintStart_toStartOf="@+id/tv_favmenu"
-        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu"
-        android:src="@drawable/img_star" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu" />
 
 
     <TextView
@@ -59,39 +59,40 @@
         android:layout_height="17dp"
         android:layout_marginStart="1dp"
         android:text="4.9"
+        android:textColor="?attr/colorPrimary"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/star"
         app:layout_constraintTop_toBottomOf="@+id/tv_favmenu" />
 
     <TextView
+        android:id="@+id/tv_fav_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_fav_count"
-        android:textSize="12sp"
         android:text="(3,839)"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tv_fav_review"
-        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_favmenu" />
 
     <ImageView
         android:id="@+id/iv_fav_filledheart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_filledheart"
-        app:layout_constraintTop_toBottomOf="@id/tv_fav_time"
-        app:layout_constraintEnd_toEndOf="@+id/tv_fav_time"
         android:visibility="gone"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/tv_fav_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_fav_time" />
 
     <ImageView
         android:id="@+id/iv_fav_heart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_heart"
-        app:layout_constraintTop_toBottomOf="@id/tv_fav_time"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/tv_fav_time"
-        android:visibility="visible"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_fav_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

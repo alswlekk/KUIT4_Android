@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myEats.MyEatsTabmenuFragment">
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#D7D2D2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_my_eats_tab"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/v_line"
+        app:tabBackground="@color/white"
+        app:tabIndicatorColor="@color/black"
+        app:tabIndicatorFullWidth="true"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="#595353" />
+
+    <androidx.viewpager2.widget.ViewPager2
+
+        android:id="@+id/vp_my_eats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tl_my_eats_tab" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="29dp"
+    android:layout_marginTop="21dp">
+
+    <TextView
+        android:id="@+id/tv_my_eats_review_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="아워떡볶이"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_eats_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_my_eats_review_title">
+
+        <ImageView
+            android:id="@+id/iv_review_star1"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_review_star2"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toEndOf="@id/iv_review_star1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_review_star3"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toEndOf="@id/iv_review_star2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_review_star4"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toEndOf="@id/iv_review_star3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_review_star5"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/img_star"
+            app:layout_constraintStart_toEndOf="@id/iv_review_star4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_my_eats_review_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="2024-04-11"
+            android:textColor="#575252"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@id/iv_review_star5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_review_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="맛있게 잘 먹었습니다"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_review_star1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
