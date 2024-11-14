@@ -29,16 +29,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:id="@+id/iv_detail_pic"
-        android:layout_width="360dp"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_detail_pic"
+        android:layout_width="match_parent"
         android:layout_height="149dp"
         android:layout_marginTop="64dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/img_detail_restaurant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_vp_counter"
+        android:layout_width="44dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/siv_vp_count"
+        app:layout_constraintBottom_toBottomOf="@+id/vp_detail_pic"
+        app:layout_constraintEnd_toEndOf="@id/vp_detail_pic" />
+
+    <TextView
+        android:id="@+id/tv_vp_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/5"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/siv_vp_counter"
+        app:layout_constraintEnd_toEndOf="@id/siv_vp_counter"
+        app:layout_constraintStart_toStartOf="@id/siv_vp_counter"
+        app:layout_constraintTop_toTopOf="@id/siv_vp_counter" />
 
     <TextView
         android:id="@+id/tv_detail_title"
