@@ -3,7 +3,6 @@ package com.example.kuit4androidprivate.home
 import MenuCategoryRVAdapter
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -208,9 +207,13 @@ class HomeFragment : Fragment() {
     }
 
     private fun initLatelyDummy() {
-        val spf_menuLately: SharedPreferences =
-            requireContext().getSharedPreferences("menuLately", Context.MODE_PRIVATE)
+        val spf_menuLately = requireContext().getSharedPreferences(
+            "menuLately",
+            Context.MODE_PRIVATE
+        )
         menuLatelyDB = MenuLatelyDB.getInstance(requireContext())
+        Log.d("test", spf_menuLately.getBoolean("isInit", false).toString())
+
         if (!spf_menuLately.getBoolean("isInit", false)) {
             with(spf_menuLately.edit()) {
                 putBoolean("isInit", true)

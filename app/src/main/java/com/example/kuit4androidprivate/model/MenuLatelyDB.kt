@@ -10,7 +10,6 @@ abstract class MenuLatelyDB : RoomDatabase() {
     abstract fun menuLatelyDao(): MenuLatelyDao
 
     companion object {
-        @Volatile
         private var instance: MenuLatelyDB? = null
 
         @Synchronized
@@ -20,7 +19,7 @@ abstract class MenuLatelyDB : RoomDatabase() {
                     context,
                     MenuLatelyDB::class.java,
                     "menu_lately_db"
-                ).allowMainThreadQueries().build()
+                ).build()
             }
             return instance!!
         }
