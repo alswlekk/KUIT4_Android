@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
 import androidx.viewpager2.widget.ViewPager2
 import com.example.kuit4androidprivate.R
 import com.example.kuit4androidprivate.adapter.HomeScrollRVAdapter
@@ -24,6 +25,7 @@ import com.example.kuit4androidprivate.adapter.VpHomeAdapter
 import com.example.kuit4androidprivate.databinding.FragmentHomeBinding
 import com.example.kuit4androidprivate.detail.DetailActivity
 import com.example.kuit4androidprivate.favorite.FavoriteActivity
+import com.example.kuit4androidprivate.model.MenuCategoryDB
 import com.example.kuit4androidprivate.model.MenuCategoryData
 import com.example.kuit4androidprivate.model.MenuData
 import com.example.kuit4androidprivate.model.VpCardData
@@ -51,6 +53,8 @@ class HomeFragment : Fragment() {
     private var currentPostion = 0
     private var mHandler = Handler(Looper.getMainLooper())
 
+    private lateinit var menuCategoryDB: MenuCategoryDB // Room DB
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,10 +77,14 @@ class HomeFragment : Fragment() {
 //        CoroutineTest1()
         CoroutineTest5()
 
+        CoroutineScope(Dispatchers.IO).launch {
+            inittopDummy()
+            withContext(Dispatchers.Main) {
+                initCategoryRVAdapter()
+            }
+        }
         initBottomDummy()
         initHomeScrollRVAdapter()
-        inittopDummy()
-        initCategoryRVAdapter()
         initData()
         initEditText()
 
@@ -136,22 +144,46 @@ class HomeFragment : Fragment() {
     }
 
     private fun inittopDummy() {
-        dummyItemsCategory.addAll(
-            arrayListOf(
-                MenuCategoryData("돈가스", imageRes = R.drawable.img_porkcutlet),
-                MenuCategoryData("한식", imageRes = R.drawable.img_koreanfood),
-                MenuCategoryData("치킨", imageRes = R.drawable.img_chicken),
-                MenuCategoryData("분식", imageRes = R.drawable.img_snackfood),
-                MenuCategoryData("족발/보쌈", imageRes = R.drawable.img_jokbalbossam),
-                MenuCategoryData("찜/탕", imageRes = R.drawable.img_soup),
-                MenuCategoryData("구이", imageRes = R.drawable.img_roast),
-                MenuCategoryData("피자", imageRes = R.drawable.img_pizza),
-                MenuCategoryData("돈가스", imageRes = R.drawable.img_porkcutlet),
-                MenuCategoryData("한식", imageRes = R.drawable.img_koreanfood),
-                MenuCategoryData("치킨", imageRes = R.drawable.img_chicken),
-                MenuCategoryData("분식", imageRes = R.drawable.img_snackfood)
 
-            )
+        val spf_menuCategory =
+            requireContext().getSharedPreferences("menuCategory", Context.MODE_PRIVATE) // 접근 범위
+
+//        menuCategoryDB = Room.databaseBuilder(
+//            requireContext(),
+//            MenuCategoryDB::class.java,
+//            "menu_category_database"
+//        ).allowMainThreadQueries().build()
+
+        menuCategoryDB =
+            MenuCategoryDB.getInstance(requireContext()) //  매번 instance 생성하지 않고 싱글톤으로 생성
+
+        Log.d(
+            "test",
+            spf_menuCategory.getBoolean("isInit", false).toString()
+        ) // isInit이라는 키값으로 저장된 값이 없으면 false 반환
+
+        if (!spf_menuCategory.getBoolean("isInit", false)) {
+            with(spf_menuCategory.edit()) {
+                putBoolean("isInit", true)
+                apply()
+            }
+            menuCategoryDB.menuCategoryDao().apply {
+                insert(MenuCategoryData("돈가스", imageRes = R.drawable.img_porkcutlet))
+                insert(MenuCategoryData("한식", imageRes = R.drawable.img_koreanfood))
+                insert(MenuCategoryData("치킨", imageRes = R.drawable.img_chicken))
+                insert(MenuCategoryData("분식", imageRes = R.drawable.img_snackfood))
+                insert(MenuCategoryData("족발/보쌈", imageRes = R.drawable.img_jokbalbossam))
+                insert(MenuCategoryData("찜/탕", imageRes = R.drawable.img_soup))
+                insert(MenuCategoryData("구이", imageRes = R.drawable.img_roast))
+                insert(MenuCategoryData("피자", imageRes = R.drawable.img_pizza))
+                insert(MenuCategoryData("돈가스", imageRes = R.drawable.img_porkcutlet))
+                insert(MenuCategoryData("한식", imageRes = R.drawable.img_koreanfood))
+                insert(MenuCategoryData("치킨", imageRes = R.drawable.img_chicken))
+                insert(MenuCategoryData("분식", imageRes = R.drawable.img_snackfood))
+            }
+        }
+        dummyItemsCategory.addAll(
+            menuCategoryDB.menuCategoryDao().getAll()
         )
     }
 
@@ -455,7 +487,7 @@ class HomeFragment : Fragment() {
                     swipePage()
                 }
 
-                Log.d("test", "count: $count")
+//                Log.d("test", "count: $count")
             }
         }
     }
